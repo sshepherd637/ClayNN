@@ -25,3 +25,5 @@ D. Prishchenko, E. Zenkov , V. Mazurenko *et al.* *Molecular Dynamics of the Hal
 Halloysite can simply be treated as a larger scale version of kaolinite. 
 
 As such, I'm not including any additional files on this mineral for the time being.
+
+Finally, the file `SuperCell.ipynb` is a quick run-through of how a supercell can be made from an `.xyz` file using pythons `ase` module. In the version uploaded I am using the mineral nacrite.
