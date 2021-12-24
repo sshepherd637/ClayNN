@@ -1,6 +1,6 @@
 # Kaolinite Neural Network: Generation 2 (KNNP_2)
 
-This directory contains all data used to generate and train the first generation of the KNNP. 
+This directory contains all data used to generate and train the second generation of the KNNP. 
 
 ## At a glance
 - Datafile = 7000 Kaolinite frames.
