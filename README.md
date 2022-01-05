@@ -16,3 +16,7 @@ This directory contains all data and models that used the hybrid functional revP
 ## revPBED3 
 
 This directory contains all data and models that used the GGA functional revPBE with Grimme's D3 dispersion corrections.
+
+## SymFuncs
+
+This directory contains a quick script that is similar to the procedure I used to generate the entire symmetry function set before any further work was taken to scale the number of these to a more sensible number.
