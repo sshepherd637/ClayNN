@@ -1,7 +1,5 @@
 # Clay Neural Network (ClaNN) Potentials
 
----
-
 This repository is the location for all of the various models and data used in the creation of neural network potentials to describe the clay mineral, kaolinite. 
 
 If you use any of the models located within this repository, please cite them accordingly!
