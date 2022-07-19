@@ -1,20 +1,27 @@
-This directory contains all the mineral data I have used or looked at throughout the creation of this NNP.
 
-I'm not including every single frame as a single point of calculation, that would fill ***way*** to many needless directories, I'll instead put all the collected datafiles up here in their full glory whenever they are generated for each mineral investigated.
+# MineralData
 
-I'll provide a brief summary of each mineral here, to help clarify which one was used when and where. 
+This directory acts as a store for all structural information for kaolinite and its polymorphs. 
+
+---
 
 ### Kaolinite
 
-This mineral forms the majority of the data available to the NNP. I've included the `.cif` file and both the unit cell and supercell `.xyz` files. All data I have within the NNP which is some form of kaolinite is derived from the supercell file found here. 
+This mineral forms the majority of the data available to the NNP. I've included the `.cif` file and both the unit cell and supercell `.xyz` files within the respective sub-directories. All data I have within the NNP which is some form of kaolinite is derived from the supercell file found here. 
+
+---
 
 ### Dickite
 
-Contains the `.cif` file, unit cell and supercell `.xyz` files. I used the supercell file to test the scope of the pure kaolinite NNP and then tested predictions of these frames later on. At this point there are no dickite frames within the potential.
+Contains the `.cif` file, unit cell and supercell `.xyz` files. At this point there are no dickite frames within the potential.
+
+---
 
 ### Nacrite
 
-Contains the `.cif` file and unit cell `.xyz` file. I am yet to find a suitable supercell geometry that I am pleased with and is similar to that used for kaolinite.
+Contains the `.cif` file and unit cell `.xyz` file. This directory also contains an interactive jupyter-notebook showing the construction of the supercell geometries used throughout the creation of the potentials.
+
+---
 
 ### Halloysite
 
@@ -26,4 +33,3 @@ Halloysite can simply be treated as a larger scale version of kaolinite.
 
 As such, I'm not including any additional files on this mineral for the time being.
 
-Finally, the file `SuperCell.ipynb` is a quick run-through of how a supercell can be made from an `.xyz` file using pythons `ase` module. In the version uploaded I am using the mineral nacrite.
