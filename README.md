@@ -4,7 +4,7 @@ This repository is the location for all of the various models and data used in t
 
 If you use any of the models located within this repository, please cite them accordingly!
 
-## Directories
+# Directories
 ### Data
 
 The Data directory contains all *general* data that is not specific to the individual potentials created using one of the listed DFT functionals. As such, the following information is located here...
