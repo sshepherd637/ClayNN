@@ -17,6 +17,8 @@ The Data directory contains all *general* data that is not specific to the indiv
 
 This directory contains all specific model information and files needed to recreate the use of this potential. The title refers to the DFT functional that the model is baselined against, namely revPBE with Grimme's dispersion corrections in the form of D3 corrections.
 
+---
+
 ### revPBE + vdW
 
 This directory contains all specific model information and files needed to recreate the use of this potential. The title refers to the DFT functional that the model is baselined against, namely revPBE with added dispersion corrections through the vdW corrections.
