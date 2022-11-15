@@ -1,0 +1,54 @@
+# Geometry Optimization using NN Kaolinite
+###############################################################################
+
+# VARIABLES
+###############################################################################
+clear
+# Configuration files
+variable cfgFile         string "./data.lmp"
+# Timestep variables
+variable numSteps        equal  5
+variable dt              equal  0.0005
+# ClayNN version variables
+variable nnpCutoff       equal  12.00 # Maximum cutoff used within SymFuncs
+variable nnpDir          string "Path/To/Directory/Containing/Model" # Change this to directory containing model
+# Elemental masses
+variable mass_H          equal  1.00794
+variable mass_O          equal  15.9994
+variable mass_Al         equal  26.982
+variable mass_Si         equal  28.085
+
+###############################################################################
+# GENERAL SETUP
+###############################################################################
+units electron
+boundary p p p
+atom_style atomic
+box tilt large
+read_data ${cfgFile}
+mass 1 ${mass_H}
+mass 2 ${mass_O}
+mass 3 ${mass_Al}
+mass 4 ${mass_Si}
+timestep ${dt}
+thermo 1
+
+###############################################################################
+# NN
+###############################################################################
+pair_style nnp dir ${nnpDir} showew no showewsum 100 resetew yes maxew 100000 cflength 1.0 cfenergy 1.0 emap "1:H,2:O,3:Al,4:Si"
+pair_coeff * * ${nnpCutoff}
+
+###############################################################################
+# OUTPUT CHANGES
+###############################################################################
+thermo_style custom step pe vol cella cellb cellc cellalpha cellbeta cellgamma press pxx pyy pzz pxy pxz pyz
+
+###############################################################################
+# SIMULATION
+###############################################################################
+fix 1 all box/relax tri 0.0
+dump Frames all xyz 1 lammps.xyz
+
+min_style sd
+minimize 1.0e-8 1.0e-8 10000000 100000000

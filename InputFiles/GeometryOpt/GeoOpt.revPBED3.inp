@@ -1,0 +1,98 @@
+&FORCE_EVAL
+   METHOD QUICKSTEP
+   STRESS_TENSOR ANALYTICAL
+   &DFT
+      BASIS_SET_FILE_NAME GTH_BASIS_SETS
+      POTENTIAL_FILE_NAME POTENTIAL
+      &SCF
+         SCF_GUESS RESTART
+         MAX_SCF 50
+         EPS_SCF 5e-07
+         &OUTER_SCF
+            MAX_SCF 20
+            EPS_SCF 5e-07
+         &END OUTER_SCF
+         &OT
+            MINIMIZER DIIS
+            PRECONDITIONER FULL_ALL
+         &END OT
+      &END SCF
+      &QS
+         EPS_DEFAULT 1e-12
+         EPS_PGF_ORB 1e-14
+         EXTRAPOLATION USE_GUESS
+         EXTRAPOLATION_ORDER 5
+      &END QS
+      &XC
+         &XC_GRID
+            XC_DERIV SPLINE2
+         &END XC_GRID
+         &VDW_POTENTIAL
+            POTENTIAL_TYPE PAIR_POTENTIAL
+            &PAIR_POTENTIAL
+               TYPE DFTD3
+               R_CUTOFF 15.0
+               LONG_RANGE_CORRECTION TRUE
+               REFERENCE_FUNCTIONAL revPBE
+               PARAMETER_FILE_NAME dftd3.dat
+            &END PAIR_POTENTIAL
+         &END VDW_POTENTIAL
+         &XC_FUNCTIONAL
+            &PBE
+               PARAMETRIZATION REVPBE
+            &END PBE
+         &END XC_FUNCTIONAL
+      &END XC
+      &MGRID
+         CUTOFF 400
+         REL_CUTOFF 60
+      &END MGRID
+   &END DFT
+   &SUBSYS
+      &KIND Si
+         BASIS_SET DZVP-GTH
+         POTENTIAL GTH-PBE-q4
+      &END KIND
+      &KIND Al
+         BASIS_SET DZVP-GTH
+         POTENTIAL GTH-PBE-q3
+      &END KIND
+      &KIND H
+         BASIS_SET TZV2P-GTH
+         POTENTIAL GTH-PBE-q1
+      &END KIND
+      &KIND O
+         BASIS_SET TZV2P-GTH
+         POTENTIAL GTH-PBE-q6
+      &END KIND
+      &TOPOLOGY
+         COORD_FILE_NAME kaolinite.2x2x1.xyz
+         COORD_FILE_FORMAT XYZ
+      &END TOPOLOGY
+      &CELL
+         SYMMETRY TRICLINIC
+         PERIODIC XYZ
+         A 10.307 0.0 0.0
+         B 0.0633624996 17.8836877526 0.0
+         C -3.8371175814 -0.4831851632 14.2662866298
+      &END CELL
+   &END SUBSYS
+&END FORCE_EVAL
+
+&MOTION
+   &CELL_OPT
+      MAX_DR    1.0E-05
+      MAX_FORCE 1.0E-05
+      RMS_DR    1.0E-05    
+      RMS_FORCE 1.0E-05
+      MAX_ITER 500
+      OPTIMIZER BFGS
+      TYPE DIRECT_CELL_OPT
+   &END CELL_OPT   
+&END MOTION
+
+&GLOBAL
+   PROJECT_NAME revPBED3_Cell_Opt
+   RUN_TYPE CELL_OPT
+   PRINT_LEVEL MEDIUM
+&END GLOBAL
