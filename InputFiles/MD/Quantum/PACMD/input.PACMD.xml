@@ -1,0 +1,37 @@
+<simulation verbosity="high">
+  <output prefix='kaolinite'>
+    <properties stride='10' filename='out'>  [ time{femtosecond}, conserved, temperature{kelvin}, kinetic_cv, potential, pressure_cv{bar}, volume ] </properties>
+    <trajectory stride='10' filename='pos' format='pdb' cell_units='angstrom'> positions{angstrom} </trajectory>
+    <trajectory stride='10' filename='vel' format='xyz'>v_centroid</trajectory>
+    <checkpoint stride='10' filename='chk' overwrite='true'/>
+  </output>
+  <total_steps>400000</total_steps>
+  <prng><seed>8835</seed></prng>
+  <ffsocket name="driver" mode="unix" pbc="True">
+    <address>ClayNN</address>
+  </ffsocket>
+  <system>
+    <normal_modes>
+     <frequencies style='pa-cmd' units='inversecm'> [13000] </frequencies>
+    </normal_modes>
+    <forces> <force forcefield='driver'></force></forces>
+    <initialize nbeads='16'>
+      <file mode='xyz'> ipi.xyz </file>
+      <velocities mode='thermal' units="kelvin"> 300 </velocities>
+    </initialize>
+    <ensemble>
+      <temperature units="kelvin">300</temperature>
+      <stress units="bar">[1,0,0,0,1,0,0,0,1]</stress>
+    </ensemble>
+    <motion mode='dynamics'>
+     <dynamics mode='nvt'>
+      <thermostat mode='pile_g'>
+        <tau units="femtosecond">1000</tau>
+        <pile_lambda> 0.01 </pile_lambda>
+      </thermostat>
+     <timestep units="femtosecond">0.125</timestep>
+     <nmts> [4] </nmts>
+     </dynamics>
+    </motion>
+  </system>
+</simulation>

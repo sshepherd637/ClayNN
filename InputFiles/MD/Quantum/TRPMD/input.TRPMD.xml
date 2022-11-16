@@ -1,21 +1,18 @@
 <simulation verbosity="high">
   <output prefix='simulation'>
-    <properties stride='1' filename='out'>  [ time{femtosecond}, conserved, temperature{kelvin}, kinetic_cv, potential, pressure_cv{bar}, volume ] </properties>
-    <trajectory stride='10' filename='pos' format='pdb' cell_units='angstrom'> positions{atomic_unit} </trajectory>
+    <properties stride='10' filename='out'>  [ time{femtosecond}, conserved, temperature{kelvin}, kinetic_cv, potential, pressure_cv{bar}, volume ] </properties>
+    <trajectory stride='10' filename='pos' format='pdb' cell_units='atomic_unit'> positions{atomic_unit} </trajectory>
+    <trajectory stride='1' filename='vel' format='xyz'> v_centroid </trajectory>
     <checkpoint stride='1' filename='chk' overwrite='true'/>
   </output>
   <total_steps>2000000</total_steps>
-  <prng><seed>950</seed></prng>
+  <prng><seed>11852</seed></prng>
   <ffsocket name='lammps' mode='unix' pbc='True'>
-    <port>12345</port> 
-    <timeout>20000</timeout> 
-    <address>ClayNN-D3</address> 
-    <latency>0.01</latency> 
-    <slots>4</slots>
+   <port>12345</port> <timeout>20000</timeout> <address>ClayNN</address> <latency>0.01</latency> <slots>4</slots>
   </ffsocket>
   <system>
     <forces> <force forcefield='lammps' weight='1.0'></force> </forces>
-    <initialize nbeads='1'>
+    <initialize nbeads='16'>
       <file mode='xyz'> ipi.xyz </file>
       <velocities mode='thermal' units="kelvin"> 300 </velocities>
     </initialize>
@@ -26,6 +23,7 @@
       <dynamics mode='nvt'>
         <thermostat mode='pile_g'>
         <tau units="femtosecond">500</tau>
+        <pile_lambda> 0.5 </pile_lambda>
         </thermostat>
       <timestep units='femtosecond'>0.25</timestep>
       </dynamics>
