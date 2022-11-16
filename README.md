@@ -17,3 +17,9 @@ The Data directory contains all *general* data that is not specific to the indiv
 ### InputFiles
 
 The input file diirectory contains files that allow for the running of various calculations/simulations that we carried out throughout. We include files to run geometry optimization calculations and both classical and path integral molecular dynamics 'out of the box' while providing workflows for the creation of the phonon densities of states using phonopy. 
+
+### External Codes
+- [CP2K] (https://github.com/cp2k/cp2k.git)
+- [I-PI] (https://github.com/i-pi/i-pi.git)
+- [LAMMPS] (https://github.com/lammps/lammps.git)
+- [Phonopy] (https://github.com/phonopy/phonopy.git)
