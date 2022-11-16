@@ -1,0 +1,19 @@
+This document details the steps that we took to compute the Phonon Densities of States (PDOS) using phonopy.
+We used the CP2K interface as the force calculator for the phonopy package. In addition, we also provided the
+neural network predicted forces to phonopy through the editing of the predicted force files to match the CP2K 
+format.
+#############################################################################################################
+
+This procedure is also detailed at https://phonopy.github.io/phonopy/cp2k.html#supported-cp2k-configuration-options
+
+1. Creation of a suitable CP2K input file containing the kaolinite UNIT cell.
+2. Creation of the displacement configurations using a 2 x 2 x 2 supercell within phonopy.
+3. Computation of the atomic forces using a slightly modified procedure:
+    a. Computation of the initial wavefunction by running the initial supercell structure through CP2K as an energy 
+    force calculation.
+    b. Recycling of the wavefunction as a starting point for all displacement configurations and computing atomic 
+    forces using this.
+4. Combination of the outputs into the FORCE_SETS. 
+5. Creation of the PDOS using the provided pdos.conf file. We used a variety of different settings to try and compute a 
+suitably sharp spectra and varied the values of SIGMA and DOS_RANGE step (3rd input parameter) to achieve this. The output 
+spectra is obtained in units of Thz.
