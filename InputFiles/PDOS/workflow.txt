@@ -6,7 +6,8 @@ format.
 
 This procedure is also detailed at https://phonopy.github.io/phonopy/cp2k.html#supported-cp2k-configuration-options
 
-1. Creation of a suitable CP2K input file containing the kaolinite UNIT cell.
+1. Creation of a suitable CP2K input file containing the kaolinite optimized UNIT cell. (Optimized using the necessary 
+functional)
 2. Creation of the displacement configurations using a 2 x 2 x 2 supercell within phonopy.
 3. Computation of the atomic forces using a slightly modified procedure:
     a. Computation of the initial wavefunction by running the initial supercell structure through CP2K as an energy 
