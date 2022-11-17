@@ -26,3 +26,9 @@ Classical MD and PIMD calculations are run using the i-PI wrapper to LAMMPS. To 
     sleep 10
     mpirun -np 96 /path/to/lammps/bin/lmp_mpi < md.lmp &> lmp.out &
     wait
+
+We provide input files for both classical and quantum simulations that require minimal changes to ensure they run. We recommend changing any line mentioning `address_passed_to_ipi` to something more specific.
+
+- Phonon Densities of States
+
+We provide a general workflow within the directory.
