@@ -10,7 +10,7 @@
   <ffsocket name='lammps' mode='unix' pbc='True'>
    <port>12345</port> 
    <timeout>20000</timeout> 
-   <address>ClayNN-D3</address> 
+   <address>address_passed_to_ipi</address> 
    <latency>0.01</latency> 
    <slots>4</slots>
   </ffsocket>

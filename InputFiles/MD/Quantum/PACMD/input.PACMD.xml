@@ -8,7 +8,7 @@
   <total_steps>400000</total_steps>
   <prng><seed>8835</seed></prng>
   <ffsocket name="driver" mode="unix" pbc="True">
-    <address>ClayNN</address>
+    <address>address_passed_to_ipi</address>
   </ffsocket>
   <system>
     <normal_modes>
