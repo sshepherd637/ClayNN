@@ -10,14 +10,17 @@ Following the installation of the necessary codes, these input files can be used
 - Geometry Optimization
 
 CP2K will depend on the available MPI libraries installed, we run it as:
+    
     mpirun -np 96 /path/to/cp2k/bin/cp2k.popt -i GeoOpt.inp > GeoOpt.out 2>&1
 
 LAMMPS is much more forgiving:
+    
     mpirun -np 96 /path/to/lammps/bin/lmp_mpi < GeoOpt.lmp &> lmp.out
 
 - Molecular Dynamics
 
 Classical MD and PIMD calculations are run using the i-PI wrapper to LAMMPS. To run a simulation, use the following snippet:
+    
     source /path/to/i-pi/bin/env.sh
     i-pi input_file.xml &> ipi.out &
     sleep 10
