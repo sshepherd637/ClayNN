@@ -2,7 +2,7 @@
   <output prefix='simulation'>
     <properties stride='1' filename='out'>  [ time{femtosecond}, conserved, temperature{kelvin}, kinetic_cv, potential, pressure_cv{bar}, volume ] </properties>
     <trajectory stride='10' filename='pos' format='pdb' cell_units='angstrom'> positions{angstrom} </trajectory>
-    <trajectory stride='10' filename='vel' format-'xyz'
+    <trajectory stride='10' filename='vel' format='xyz' </trajectory>
     <checkpoint stride='1' filename='chk' overwrite='true'/>
   </output>
   <total_steps>2000000</total_steps>
