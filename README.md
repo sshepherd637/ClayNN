@@ -1,6 +1,6 @@
 # Clay Neural Network (ClayNN) Potentials
 
-This repository is the location for all of the various models and data used in the creation of neural network potentials to describe the clay mineral, kaolinite. 
+This repository is the location for all of the various models and data used in the creation of neural network potentials to describe three of the dominant forms of the kaolin minerals, namely Kaolinite, Dickite, and Nacrite.
 
 # Directories
 ### Data
