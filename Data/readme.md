@@ -16,10 +16,16 @@ Contains files relating to the symmetry functions that are used in the creation 
 
 ---
 
-Contains all the files used to recreate the models used throughout this work created with the revPBED3 reference DFT functional. This directory includes the single 'driver' NNP and the committee used to validate it, as well as data input files for the running of CP2K with that specific functional
+Contains all the files used to recreate the models used throughout this work created with the revPBED3 reference DFT functional. This directory includes the single 'driver' NNP and the committee used to validate it.
 
 ### revPBEvdW
 
 ---
 
-Contains all the files used to recreate the models used throughout this work created with the revPBEvdW reference DFT functional. This directory includes the single 'driver' NNP and the committee used to validate it, as well as data input files for the running of CP2K with that specific functional
+Contains all the files used to recreate the models used throughout this work created with the revPBEvdW reference DFT functional. This directory includes the single 'driver' NNP and the committee used to validate it.
+
+### SCAN
+
+---
+
+Contains all the files used to recreate the models used throughout this work created with the SCAN reference DFT functional. This directory includes the single 'driver' NNP and the committee used to validate it.
